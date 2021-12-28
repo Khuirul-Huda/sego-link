@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Link;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 
 class LinkController extends Controller
 {
@@ -47,10 +48,11 @@ class LinkController extends Controller
             'wrapper_url' => $wrapper_url
         ]);
         $status_message = 'success';
-
+        $appurl = Config::get('app.url') . '/';
         $data = [
             $status_message,
-            $link->wrapper_url
+            $link->wrapper_url,
+            $appurl
         ];
         return view('home', ['data' => $data]);
         

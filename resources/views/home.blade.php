@@ -38,7 +38,7 @@
                         </form>
                         @if ($data ?? '')
                        <div style="margin-top: 2%" class="alert alert-{{ $data[0] }}" role="alert">
-                           Your links successfully shortened to <a href="https://sego.link/{{ $data[1] }}"> https://sego.link/{{ $data[1] }}</a>
+                           Your links successfully shortened to <a href="{{ $data[2].$data[1] }}"> {{ $data[2].$data[1] }}</a>
                        </div>
                         @endif
                         @error('wrapper_url')
