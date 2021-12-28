@@ -27,7 +27,7 @@
                             <input type="hidden" name="username" value="{{ __(Auth::user()->name) }}">
                         <div class="input-group mb-3">
                            <span class="input-group-text">Long URL</span>
-                            <input type="text"  class="form-control" name="dest_link" id="short" required='required'>
+                            <input type="text"  class="form-control" name="dest_link" required='required'>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">https://sego.link/</span>
@@ -42,6 +42,11 @@
                        </div>
                         @endif
                         @error('wrapper_url')
+                        <div style="margin-top: 2%" class="alert alert-warning" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                        @error('dest_url')
                         <div style="margin-top: 2%" class="alert alert-warning" role="alert">
                             {{ $message }}
                         </div>

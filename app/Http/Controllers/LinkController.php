@@ -24,15 +24,19 @@ class LinkController extends Controller
         */
 
         $this->validate($request, [
-            'wrapper_url' => ['required', 'string', 'max:8', 'unique:links', 'min:4'],
+            'dest_link' => ['required', 'url'],
+            'wrapper_url' => ['required', 'string', 'max:50', 'unique:links', 'min:4'],
             'username' => ['required']
         ], [
             'string' => '',
             'max' => 'Max character is :max',
             'min' => 'Min character is :min',
             'required' => 'No such data received',
-            'unique' => 'This short url is not available (already exist)'
+            'unique' => 'This short url is not available (already exist)',
+            'url' => 'Input valid URL'
+
         ]);
+
         $username = $request->username;
         $dest_link = $request->dest_link;
         $wrapper_url = $request->wrapper_url;
