@@ -30,7 +30,7 @@
                             <input type="text"  class="form-control" name="dest_link" required='required'>
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text">https://sego.link/</span>
+                            <span class="input-group-text">{{ Config::get('app.url').'/' }}</span>
                     <input type="text" class="form-control" name="wrapper_url" required='required'>
                             </div>
                     <input class="btn btn-primary" type="submit" value="Shorten">
