@@ -31,7 +31,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text">https://sego.link/</span>
-                    <input type="text" class="form-control" name="wrapper_url" >
+                    <input type="text" class="form-control" name="wrapper_url" required='required'>
                             </div>
                     <input class="btn btn-primary" type="submit" value="Shorten">
                         </div>
@@ -41,6 +41,11 @@
                            Your links successfully shortened to <a href="https://sego.link/{{ $data[1] }}"> https://sego.link/{{ $data[1] }}</a>
                        </div>
                         @endif
+                        @error('wrapper_url')
+                        <div style="margin-top: 2%" class="alert alert-warning" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
                 </div>
             </div>
         </div>

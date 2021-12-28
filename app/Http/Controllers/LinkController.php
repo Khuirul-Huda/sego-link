@@ -9,6 +9,7 @@ class LinkController extends Controller
 {
     public function create(Request $request)
     {
+        /*
         function random() {
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $random_str = '';
@@ -20,9 +21,21 @@ class LinkController extends Controller
           
             return $random_str;
         }
+        */
+
+        $this->validate($request, [
+            'wrapper_url' => ['required', 'string', 'max:8', 'unique:links', 'min:4'],
+            'username' => ['required']
+        ], [
+            'string' => '',
+            'max' => 'Max character is :max',
+            'min' => 'Min character is :min',
+            'required' => 'No such data received',
+            'unique' => 'This short url is not available (already exist)'
+        ]);
         $username = $request->username;
         $dest_link = $request->dest_link;
-        $wrapper_url = ( $request->wrapper_url ?? random());
+        $wrapper_url = $request->wrapper_url;
 
         $link = Link::create([
             'username' => $username,
